@@ -1,0 +1,16 @@
+{"level":"info","message":"Iniciando servidor","service":"fakegram-api","timestamp":"2023-04-09T22:28:21.854Z"}
+{"level":"info","message":"Configurações setadas com sucesso!","service":"fakegram-api","timestamp":"2023-04-09T22:28:21.858Z"}
+{"level":"info","message":"Rotas inicializadas com sucesso!","service":"fakegram-api","timestamp":"2023-04-09T22:28:21.859Z"}
+{"level":"info","message":"Servidor rodando na porta 8000","service":"fakegram-api","timestamp":"2023-04-09T22:28:21.862Z"}
+{"level":"info","message":"Iniciando servidor","service":"hamburguergama","timestamp":"2023-04-09T22:30:08.992Z"}
+{"level":"info","message":"Configurações setadas com sucesso!","service":"hamburguergama","timestamp":"2023-04-09T22:30:08.995Z"}
+{"level":"info","message":"Rotas inicializadas com sucesso!","service":"hamburguergama","timestamp":"2023-04-09T22:30:08.996Z"}
+{"level":"info","message":"Servidor rodando na porta 8000","service":"hamburguergama","timestamp":"2023-04-09T22:30:08.999Z"}
+{"level":"info","message":"Iniciando servidor","service":"hamburguergama","timestamp":"2023-04-09T22:51:24.200Z"}
+{"level":"info","message":"Configurações setadas com sucesso!","service":"hamburguergama","timestamp":"2023-04-09T22:51:24.204Z"}
+{"level":"info","message":"Rotas inicializadas com sucesso!","service":"hamburguergama","timestamp":"2023-04-09T22:51:24.204Z"}
+{"level":"info","message":"Servidor rodando na porta 8000","service":"hamburguergama","timestamp":"2023-04-09T22:51:24.207Z"}
+{"level":"info","message":"Iniciando servidor","service":"hamburguergama","timestamp":"2023-04-09T23:15:25.968Z"}
+{"level":"info","message":"Configurações setadas com sucesso!","service":"hamburguergama","timestamp":"2023-04-09T23:15:25.971Z"}
+{"level":"info","message":"Rotas inicializadas com sucesso!","service":"hamburguergama","timestamp":"2023-04-09T23:15:25.972Z"}
+{"level":"info","message":"Servidor rodando na porta 8000","service":"hamburguergama","timestamp":"2023-04-09T23:15:25.975Z"}
