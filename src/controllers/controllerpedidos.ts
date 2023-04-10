@@ -36,14 +36,12 @@ const pedidosController = {
     }
   },
   async getpedidoid(req:Request, res:Response){
-const {id} = req.params
+    const {id} = req.params
 
     const pedidoid = await PedidosModel.findByPk(id);
-        return res.json(pedidoid)
-        
+        return res.json(pedidoid)       
 
-   }
-    
+   }    
     
   }
 
