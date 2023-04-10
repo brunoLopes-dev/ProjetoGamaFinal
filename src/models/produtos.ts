@@ -1,36 +1,37 @@
- const db2 = require('../database/db')
- import { DataTypes } from "sequelize";
-const categorias = require('./categorias')
+import { DataTypes, ModelDefined, Optional } from "sequelize";
+import db from "../database/db"
 
- const produtos = db2.define('produtos', {
-   id: {
-     type: DataTypes.INTEGER,
-     autoIncrement: true,
-     allowNull: false,
-     primaryKey: true
-   },
-   nome: {
-     type: DataTypes.STRING,
-     allowNull: false
-   },
-   descricao: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-   preco: {
-     type: DataTypes.DECIMAL,
-     allowNull: false
-   },
-   id_categoria: {
+export interface Produtos{
+  id: number
+  nome_produto: string
+  descricao: string
+  preco: string
+}
+
+
+type ProdutosCreation = Optional<Produtos, 'id'>
+
+export const ProdutosModel: ModelDefined<Produtos, ProdutosCreation> = db.define("Produtos", {
+  id:{
     type: DataTypes.INTEGER,
-    references: {
-      model: categorias,
-      key: 'id'
-    }
+    primaryKey: true,
+    autoIncrement: true,
   },
- },
- {  
-   tableName: 'produtos'
- })
 
-module.exports = produtos
+  nome_produto: {
+    type: DataTypes.STRING,
+  },
+
+  descricao: {
+    type: DataTypes.STRING,
+  },
+
+  preco: {
+    type: DataTypes.INTEGER
+  },
+}, {
+  tableName: 'produtos',
+  timestamps: false
+})
+
+export default ProdutosModel

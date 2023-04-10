@@ -1,35 +1,28 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const db2 = require('../database/db');
+exports.ProdutosModel = void 0;
 const sequelize_1 = require("sequelize");
-const categorias = require('./categorias');
-const produtos = db2.define('produtos', {
+const db_1 = __importDefault(require("../database/db"));
+exports.ProdutosModel = db_1.default.define("Produtos", {
     id: {
         type: sequelize_1.DataTypes.INTEGER,
+        primaryKey: true,
         autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
     },
-    nome: {
+    nome_produto: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false
     },
     descricao: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false
     },
     preco: {
-        type: sequelize_1.DataTypes.DECIMAL,
-        allowNull: false
-    },
-    id_categoria: {
-        type: sequelize_1.DataTypes.INTEGER,
-        references: {
-            model: categorias,
-            key: 'id'
-        }
+        type: sequelize_1.DataTypes.INTEGER
     },
 }, {
-    tableName: 'produtos'
+    tableName: 'produtos',
+    timestamps: false
 });
-module.exports = produtos;
+exports.default = exports.ProdutosModel;

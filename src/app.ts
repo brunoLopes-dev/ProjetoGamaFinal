@@ -1,5 +1,4 @@
 import express from 'express'
-import pedidos from './routes'
 import path from 'path'
 import logger from './logger'
 import index from './routes'
