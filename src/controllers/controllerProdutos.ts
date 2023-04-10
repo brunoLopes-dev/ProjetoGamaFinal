@@ -2,15 +2,14 @@ import { Request, Response } from "express";
 import logger from "../logger/index";
 import ProdutosModel, { Produtos } from "../models/produtos";
 
+//criar produto
+
 const produtosControllers = {
   async create(req: Request, res: Response) {
     try {
       logger.info("[produtosControllers] - Produto adicionado ao carrinho");
       const { nome_produto, descricao, preco } = req.body;
-      logger.info(
-        `[produtosControllers] - payload: ${JSON.stringify(
-          Object.assign({}, req.body)
-        )}`
+      logger.info(`[produtosControllers] - payload: ${JSON.stringify(Object.assign({}, req.body))}`
       );
 
       const newProduto = await ProdutosModel.create({
@@ -22,11 +21,11 @@ const produtosControllers = {
       return res.json(newProduto);
     } catch (error) {
       logger.error(`[pedidosControllers] error: ${error}`);
-      return res
-        .status(500)
-        .json("Algo errado! Verifique novamente!");
+      return res.status(500).json("Algo errado! Verifique novamente!");
     }
   },
+
+  //listar produtos
 
   async list(req: Request, res: Response) {
     try {
@@ -54,6 +53,8 @@ const produtosControllers = {
     return res.json(produto);
   },
 
+  //atualizar produto
+
   async update(req: Request, res: Response) {
     try {
       const { id } = req.params;
@@ -73,6 +74,8 @@ const produtosControllers = {
       return res.status(500).json("A algo errado!");
     }
   },
+
+  //deletar produto
 
   async delete(req: Request, res: Response) {
     try {
