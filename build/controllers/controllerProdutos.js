@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = __importDefault(require("../logger/index"));
 const produtos_1 = __importDefault(require("../models/produtos"));
+//criar produto
 const produtosControllers = {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -31,12 +32,11 @@ const produtosControllers = {
             }
             catch (error) {
                 index_1.default.error(`[pedidosControllers] error: ${error}`);
-                return res
-                    .status(500)
-                    .json("Algo errado! Verifique novamente!");
+                return res.status(500).json("Algo errado! Verifique novamente!");
             }
         });
     },
+    //listar produtos
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -62,6 +62,7 @@ const produtosControllers = {
             return res.json(produto);
         });
     },
+    //atualizar produto
     update(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -80,6 +81,7 @@ const produtosControllers = {
             }
         });
     },
+    //deletar produto
     delete(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
