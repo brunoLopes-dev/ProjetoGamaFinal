@@ -1,23 +1,25 @@
 import { DataTypes, ModelDefined, Optional } from "sequelize";
 import db from "../database/db";
 
-export interface Usuarios{
+export interface clientes{
     id: number
-    nome_usuario: string
+    nome: string
     email: string
-    senha: string
+    senha: number
+    endereco: string
+    telefone : number
 }
 
-type UsersCreation = Optional<Usuarios, 'id'>
+type UsersCreation = Optional<clientes, 'id'>
 
-export const UsersModel: ModelDefined<Usuarios, UsersCreation> = db.define("Usuarios", {
+export const ClientesModel: ModelDefined<clientes, UsersCreation> = db.define("clientes", {
     id:{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
 
-    nome_usuario:{
+    nome:{
         type: DataTypes.STRING
     },
 
@@ -27,11 +29,20 @@ export const UsersModel: ModelDefined<Usuarios, UsersCreation> = db.define("Usua
     },
 
     senha: {
+        type: DataTypes.NUMBER
+    },
+    endereco :{
         type: DataTypes.STRING
     },
+    telefone:{
+        type: DataTypes.NUMBER
+    }
+
+
+   
 }, {
-    tableName: 'usuarios',
+    tableName: 'clientes',
     timestamps: false
 })
 
-export default UsersModel
+export default ClientesModel

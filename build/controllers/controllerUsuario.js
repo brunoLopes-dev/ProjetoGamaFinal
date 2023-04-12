@@ -19,10 +19,10 @@ const usuariosControllers = {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 index_1.default.info("[usuarioControllers] - Usuario criado com sucesso");
-                const { nome_usuario, email, senha } = req.body;
+                const { nome, email, senha } = req.body;
                 index_1.default.info(`[usuarioControllers] - payload: ${JSON.stringify(Object.assign({}, req.body))}`);
                 const newUsers = yield usuarios_1.default.create({
-                    nome_usuario,
+                    nome,
                     email,
                     senha,
                 });
@@ -66,12 +66,12 @@ const usuariosControllers = {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { id } = req.params;
-                const { nome_usuario, email, senha } = req.body;
+                const { nome, email, senha } = req.body;
                 const usuario = yield usuarios_1.default.findByPk(id);
                 if (!usuario) {
                     return res.status(404).json("Usuário não encontrado");
                 }
-                yield usuario.update({ nome_usuario, email, senha });
+                yield usuario.update({ nome, email, senha });
                 return res.json(usuario);
             }
             catch (error) {

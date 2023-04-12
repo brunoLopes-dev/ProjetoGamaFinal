@@ -14,14 +14,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = __importDefault(require("../logger/index"));
 const pedidos_1 = __importDefault(require("../models/pedidos"));
+//criar pedidos
 const pedidosController = {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 index_1.default.info("[pedidosController] - Iniciando criação do pedido");
-                const { nome_user, descricao } = req.body;
+                const { nome_user, descricao, valor_total } = req.body;
                 index_1.default.info(`[pedidosController] - payload: ${JSON.stringify(Object.assign({}, req.body))}`);
-                const newPedidos = yield pedidos_1.default.create({ descricao, nome_user, created_at: new Date(), updated_at: new Date() });
+                const newPedidos = yield pedidos_1.default.create({ descricao, nome_user, valor_total, created_at: new Date(), updated_at: new Date() });
                 index_1.default.info("[pedidosController] - Pedido realizada com sucesso!");
                 return res.json(newPedidos);
             }
@@ -31,6 +32,7 @@ const pedidosController = {
             }
         });
     },
+    //listar pedidos
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -55,6 +57,25 @@ const pedidosController = {
             const { id } = req.params;
             const pedidoid = yield pedidos_1.default.findByPk(id);
             return res.json(pedidoid);
+        });
+    },
+    //atualizar pedido
+    updatepedido(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const { id } = req.params;
+                const { descricao, valor_total } = req.body;
+                const pedido = yield pedidos_1.default.findByPk(id);
+                if (!pedido) {
+                    return res.status(404).json("pedido não encontrado");
+                }
+                yield pedido.update({ valor_total, descricao });
+                return res.json(pedido);
+            }
+            catch (error) {
+                console.log(error);
+                return res.status(500).json("errado");
+            }
         });
     }
 };

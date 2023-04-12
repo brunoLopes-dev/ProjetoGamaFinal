@@ -15,19 +15,17 @@ routes.delete("/produtos/:id"), produtosControllers.delete;
 
 
 //rotas pedidos
-
-//rotas pedidos
 routes.post('/pedidos'), controller.create
 routes.get('/pedidos'),controller.list
 routes.get('/pedidos:id'),controller.getpedidoid
 
 // rotas usuarios
 
-routes.get("/usuario"), usuariosControllers.list;
-routes.get("/usuario"), usuariosControllers.getUsuarioID;
-routes.post("usuario"), usuariosControllers.create;
-routes.put("usuario"), usuariosControllers.update;
-routes.delete("/usuario"), usuariosControllers.delete;
+routes.get("/usuario", usuariosControllers.list),
+routes.get("/usuario/:id",usuariosControllers.getUsuarioID), 
+routes.post("/usuario" , usuariosControllers.create),
+routes.put("/usuario/:id", usuariosControllers.update),
+routes.delete("/usuario/:id", usuariosControllers.delete)
 
 
 export default routes;
