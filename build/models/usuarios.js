@@ -3,16 +3,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UsersModel = void 0;
+exports.ClientesModel = void 0;
 const sequelize_1 = require("sequelize");
 const db_1 = __importDefault(require("../database/db"));
-exports.UsersModel = db_1.default.define("Usuarios", {
+exports.ClientesModel = db_1.default.define("clientes", {
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    nome_usuario: {
+    nome: {
         type: sequelize_1.DataTypes.STRING
     },
     email: {
@@ -20,10 +20,10 @@ exports.UsersModel = db_1.default.define("Usuarios", {
         unique: true
     },
     senha: {
-        type: sequelize_1.DataTypes.STRING
+        type: sequelize_1.DataTypes.NUMBER
     },
 }, {
-    tableName: 'usuarios',
+    tableName: 'clientes',
     timestamps: false
 });
-exports.default = exports.UsersModel;
+exports.default = exports.ClientesModel;

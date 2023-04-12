@@ -1,14 +1,16 @@
 import { Request, Response } from "express";
 import logger from "../logger/index";
 import PedidosModel, { Pedidos } from "../models/pedidos";
+
+//criar pedidos
 const pedidosController = {
   async create(req: Request,  res: Response){
    try {
     logger.info("[pedidosController] - Iniciando criação do pedido")
-    const { nome_user, descricao } = req.body
+    const { nome_user, descricao,valor_total } = req.body
     logger.info(`[pedidosController] - payload: ${JSON.stringify(Object.assign({},req.body))}`)
     
-    const newPedidos = await PedidosModel.create({descricao, nome_user, created_at: new Date(), updated_at: new Date()})
+    const newPedidos = await PedidosModel.create({descricao, nome_user,valor_total, created_at: new Date(), updated_at: new Date()})
     logger.info("[pedidosController] - Pedido realizada com sucesso!")
     return res.json(newPedidos)
    } catch (error) {
@@ -16,6 +18,7 @@ const pedidosController = {
       return res.status(500).json("Algo deu errado")
    }
   },
+  //listar pedidos
   async list(req: Request,  res: Response){
     try {
       const pedidos = await PedidosModel.findAll({
@@ -41,7 +44,24 @@ const pedidosController = {
     const pedidoid = await PedidosModel.findByPk(id);
         return res.json(pedidoid)       
 
-   }    
+   },
+   //atualizar pedido
+   
+   async updatepedido (req:Request, res:Response){
+    try{
+      const {id}=req.params;
+      const{descricao,valor_total}=req.body;
+      const pedido = await PedidosModel.findByPk(id);
+      if(!pedido){
+        return res.status(404).json("pedido não encontrado");
+      }
+      await pedido.update({valor_total,descricao});
+      return res.json(pedido);
+    }catch(error){
+      console.log(error);
+      return res.status(500).json("errado")
+    }
+   }
     
   }
 

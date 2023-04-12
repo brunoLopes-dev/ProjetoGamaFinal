@@ -20,8 +20,8 @@ routes.get('/pedidos'), controllerpedidos_1.default.list;
 routes.get('/pedidos:id'), controllerpedidos_1.default.getpedidoid;
 // rotas usuarios
 routes.get("/usuario"), controllerUsuario_1.default.list;
-routes.get("/usuario"), controllerUsuario_1.default.getUsuarioID;
-routes.post("usuario"), controllerUsuario_1.default.create;
-routes.put("usuario"), controllerUsuario_1.default.update;
-routes.delete("/usuario"), controllerUsuario_1.default.delete;
+routes.get("/usuario/:id"), controllerUsuario_1.default.getUsuarioID;
+routes.post("/usuario"), controllerUsuario_1.default.create;
+routes.put("/usuario/:id"), controllerUsuario_1.default.update;
+routes.delete("/usuario/:id"), controllerUsuario_1.default.delete;
 exports.default = routes;

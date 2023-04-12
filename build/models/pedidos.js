@@ -15,6 +15,9 @@ exports.PedidosModel = db_1.default.define("Pedidos", {
     nome_user: {
         type: sequelize_1.DataTypes.STRING,
     },
+    valor_total: {
+        type: sequelize_1.DataTypes.DECIMAL
+    },
     descricao: {
         type: sequelize_1.DataTypes.STRING,
     },

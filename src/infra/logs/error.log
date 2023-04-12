@@ -7,3 +7,10 @@
 {"level":"error","message":"[pedidosControllers] error: SequelizeAccessDeniedError: Access denied for user ''@'localhost' (using password: NO)","service":"hamburguergama","timestamp":"2023-04-10T18:35:07.171Z"}
 {"level":"error","message":"[pedidosControllers] error: SequelizeAccessDeniedError: Access denied for user ''@'localhost' (using password: NO)","service":"hamburguergama","timestamp":"2023-04-10T18:35:15.319Z"}
 {"level":"error","message":"[pedidosControllers] error: SequelizeAccessDeniedError: Access denied for user ''@'localhost' (using password: NO)","service":"hamburguergama","timestamp":"2023-04-10T18:35:51.850Z"}
+{"level":"error","message":"[usuariosControllers] error: TypeError: Cannot destructure property 'nome' of 'req.body' as it is undefined.","service":"hamburguergama","timestamp":"2023-04-12T22:33:33.614Z"}
+{"level":"error","message":"[usuariosControllers] error: SequelizeAccessDeniedError: Access denied for user ''@'localhost' (using password: YES)","service":"hamburguergama","timestamp":"2023-04-12T22:34:38.572Z"}
+{"level":"error","message":"[usuariosControllers] error: SequelizeConnectionError: connect ETIMEDOUT","service":"hamburguergama","timestamp":"2023-04-12T22:38:36.080Z"}
+{"level":"error","message":"[usuariosControllers] error: SequelizeConnectionError: connect ETIMEDOUT","service":"hamburguergama","timestamp":"2023-04-12T22:39:36.875Z"}
+{"level":"error","message":"[usuariosControllers] error: SequelizeConnectionError: connect ETIMEDOUT","service":"hamburguergama","timestamp":"2023-04-12T22:43:07.435Z"}
+{"level":"error","message":"[usuariosControllers] error: SequelizeDatabaseError: Field 'id' doesn't have a default value","service":"hamburguergama","timestamp":"2023-04-12T22:43:19.547Z"}
+{"level":"error","message":"[usuariosControllers] error: SequelizeDatabaseError: Field 'endereco' doesn't have a default value","service":"hamburguergama","timestamp":"2023-04-12T22:47:32.668Z"}

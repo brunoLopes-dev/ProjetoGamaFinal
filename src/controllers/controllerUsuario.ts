@@ -1,20 +1,22 @@
 import { Request, Response } from "express";
 import logger from "../logger/index";
-import UsuariosModel from "../models/usuarios";
-import { Usuarios } from "../models/usuarios";
+import ClientesModel from "../models/usuarios";
+import { clientes } from "../models/usuarios";
 
 const usuariosControllers = {
-    async create(res: Response, req: Request){
+    async create(req: Request, res: Response, ){
         try{
             logger.info("[usuarioControllers] - Usuario criado com sucesso");
-            const { nome_usuario, email, senha } = req.body;
+            const { nome, email, senha, endereco, telefone } = req.body;
             logger.info(`[usuarioControllers] - payload: ${JSON.stringify(Object.assign({}, req.body) ) }`
             );
 
-            const newUsers = await UsuariosModel.create({
-                nome_usuario,
-                email,
+            const newUsers = await ClientesModel.create({
+                nome,
+                email,  
                 senha,
+                endereco,
+                telefone
             });
             logger.info("[usuarioControllers] - Usuario adicionado com sucesso!! ;) ")
             return  res.json(newUsers);
@@ -28,9 +30,9 @@ const usuariosControllers = {
 
     async list(req: Request, res: Response){
         try{
-            const usuarios = await UsuariosModel.findAll({
+            const usuarios = await ClientesModel.findAll({
                 raw:true,
-            }) as unknown as Usuarios[];
+            }) as unknown as clientes[];
 
             const usuarioMapped = usuarios.map((usuario) =>{
                 const urlCompleta = "/usuarios/" + usuario.id;
@@ -50,7 +52,7 @@ const usuariosControllers = {
     async getUsuarioID (req: Request, res: Response){
         const {id} = req.params;
 
-        const usuario = await UsuariosModel.findByPk(id);
+        const usuario = await ClientesModel.findByPk(id);
         return res.json(usuario);
     },
 
@@ -59,15 +61,15 @@ const usuariosControllers = {
     async update (req: Request, res: Response){
         try{
             const {id} = req.params;
-            const {nome_usuario, email, senha} = req.body;
+            const {nome, email, senha} = req.body;
 
-            const usuario = await UsuariosModel.findByPk(id);
+            const usuario = await ClientesModel.findByPk(id);
 
             if (!usuario){
                 return res.status(404).json("Usuário não encontrado");
             }
 
-            await usuario.update({ nome_usuario, email, senha});
+            await usuario.update({ nome, email, senha});
 
             return res.json(usuario);
         } catch(error) {
@@ -82,7 +84,7 @@ const usuariosControllers = {
     async delete(req: Request, res: Response){
         try{
             const {id} = req.params;
-            const usuario = await UsuariosModel.findByPk(id);
+            const usuario = await ClientesModel.findByPk(id);
 
             if (!usuario){
                 return res.status(404).json("Usuário não encontrado");

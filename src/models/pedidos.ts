@@ -1,10 +1,11 @@
-import { DataTypes, ModelDefined, Optional } from "sequelize"
+import { DataTypes, IntegerDataType, ModelDefined, Optional } from "sequelize"
 import db from "../database/db"
 
 export interface Pedidos{
   id:number
   descricao: string
   nome_user: string
+  valor_total:number
   created_at: Date
   updated_at: Date
 }
@@ -22,7 +23,9 @@ export const PedidosModel: ModelDefined<Pedidos, PedidosCreation> = db.define("P
   nome_user: {
     type: DataTypes.STRING,
   },
- 
+ valor_total:{
+type:DataTypes.DECIMAL
+ },
   descricao: {
     type: DataTypes.STRING,
   },
