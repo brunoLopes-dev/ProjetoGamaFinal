@@ -1,8 +1,23 @@
-const db1 = require('../database/db')
-import { DataTypes } from "sequelize";
+import { Model, DataTypes } from 'sequelize';
+import db from '../database/db';
 
-const categorias2 = db1.define(
-  'categorias',
+interface CategoriaAttributes {
+  id: number;
+  nome: string;
+  descricao: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+class Categoria extends Model<CategoriaAttributes> implements CategoriaAttributes {
+  public id!: number;
+  public nome!: string;
+  public descricao!: string;
+  public readonly createdAt!: Date;
+  public readonly updatedAt!: Date;
+}
+
+Categoria.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -10,26 +25,25 @@ const categorias2 = db1.define(
       allowNull: false,
       autoIncrement: true
     },
-
     nome: {
       type: DataTypes.STRING,
       allowNull: false
     },
-
     descricao: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    createdAt:{
+    createdAt: {
       type: DataTypes.DATE
-  },
-  updatedAt:{
+    },
+    updatedAt: {
       type: DataTypes.DATE
-  }
+    }
   },
   {
-    tableName: 'categorias'
+    tableName: 'categorias',
+    sequelize: db
   }
-)
+);
 
-module.exports = categorias2
+export default Categoria;

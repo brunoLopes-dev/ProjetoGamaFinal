@@ -16,4 +16,4 @@ app.use(index)
 
 logger.info('Rotas inicializadas com sucesso!')
 
-app.listen(8000, ()=> logger.info("Servidor rodando na porta 8000"))
+app.listen(3000, ()=> logger.info("Servidor rodando na porta 3000"))

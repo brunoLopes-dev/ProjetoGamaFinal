@@ -2,8 +2,20 @@ import { Router } from "express";
 import produtosControllers from "../controllers/controllerProdutos";
 import controller from "../controllers/controllerpedidos"
 import usuariosControllers from "../controllers/controllerUsuario";
+import express, { Request, Response } from 'express';
+import requestLog from '../middlewares/requestLog';
+import categoriaController from '../controllers/categoriasController';
+
 
 const routes = Router();
+
+//rotas categorias
+
+routes.get('/categoria', requestLog, categoriaController.listarCategoria);
+routes.get('/categoria/:id', categoriaController.listarcategoriaId);
+routes.post('/categoria', categoriaController.cadastrarCategoria);
+routes.put('/categoria/:id', categoriaController.atualizarCategoria);
+routes.delete('/categoria/:id', categoriaController.deletarCategoria);
 
 //rotas produtos
 

@@ -1,18 +1,12 @@
-const categorias3 = require('./categorias')
-const produtos1 = require('./produtos')
+import Categoria from './categorias';
+import ProdutosModel from './produtos';
 
-produtos1.belongsTo(categorias1, {
+ProdutosModel.belongsTo(Categoria, {
   foreignKey: 'id_categoria'
 });
 
+Categoria.hasMany(ProdutosModel, {
+  foreignKey: 'psicologo_id'
+});
 
- categorias3.hasMany(produtos1, {
-   foreignKey: 'psicologo_id'
- });
-
-
-
-module.exports = {
-  categorias3,
-  produtos1,
-}
+export { Categoria, ProdutosModel };
