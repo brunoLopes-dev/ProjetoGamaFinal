@@ -15,16 +15,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = __importDefault(require("../logger/index"));
 const usuarios_1 = __importDefault(require("../models/usuarios"));
 const usuariosControllers = {
-    create(res, req) {
+    create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 index_1.default.info("[usuarioControllers] - Usuario criado com sucesso");
-                const { nome, email, senha } = req.body;
+                const { nome, email, senha, endereco, telefone } = req.body;
                 index_1.default.info(`[usuarioControllers] - payload: ${JSON.stringify(Object.assign({}, req.body))}`);
                 const newUsers = yield usuarios_1.default.create({
                     nome,
                     email,
                     senha,
+                    endereco,
+                    telefone
                 });
                 index_1.default.info("[usuarioControllers] - Usuario adicionado com sucesso!! ;) ");
                 return res.json(newUsers);

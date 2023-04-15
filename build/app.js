@@ -15,4 +15,4 @@ app.use(express_1.default.static(path_1.default.resolve('public')));
 logger_1.default.info('Configurações setadas com sucesso!');
 app.use(routes_1.default);
 logger_1.default.info('Rotas inicializadas com sucesso!');
-app.listen(8000, () => logger_1.default.info("Servidor rodando na porta 8000"));
+app.listen(3000, () => logger_1.default.info("Servidor rodando na porta 3000"));

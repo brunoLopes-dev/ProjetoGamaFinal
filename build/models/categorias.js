@@ -1,8 +1,13 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const db1 = require('../database/db');
 const sequelize_1 = require("sequelize");
-const categorias2 = db1.define('categorias', {
+const db_1 = __importDefault(require("../database/db"));
+class Categoria extends sequelize_1.Model {
+}
+Categoria.init({
     id: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
@@ -24,6 +29,7 @@ const categorias2 = db1.define('categorias', {
         type: sequelize_1.DataTypes.DATE
     }
 }, {
-    tableName: 'categorias'
+    tableName: 'categorias',
+    sequelize: db_1.default
 });
-module.exports = categorias2;
+exports.default = Categoria;

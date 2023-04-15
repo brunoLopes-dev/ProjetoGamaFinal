@@ -22,6 +22,12 @@ exports.ClientesModel = db_1.default.define("clientes", {
     senha: {
         type: sequelize_1.DataTypes.NUMBER
     },
+    endereco: {
+        type: sequelize_1.DataTypes.STRING
+    },
+    telefone: {
+        type: sequelize_1.DataTypes.NUMBER
+    }
 }, {
     tableName: 'clientes',
     timestamps: false
