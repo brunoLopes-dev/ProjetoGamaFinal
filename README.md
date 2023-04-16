@@ -52,7 +52,6 @@ Foi feito um CRUD confomer documentação.
   
 [Daniel Alejandro](https://github.com/FullDevDaniel), 
 [Bruno Lopes](https://github.com/FullDevDaniel),
-[Fréderic André](https://github.com/FullDevDaniel),
 [Mateus Vinicius](https://github.com/FullDevDaniel),
 [Pedro Damata](https://github.com/FullDevDaniel),
 
