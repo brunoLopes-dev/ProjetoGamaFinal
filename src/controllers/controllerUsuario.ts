@@ -22,7 +22,7 @@ const usuariosControllers = {
             return  res.json(newUsers);
         } catch (error){
             logger.error(`[usuariosControllers] error: ${error}`);
-            return res.status(500).json("Algo errado! Verifiquei novamente");
+            return res.status(500).json("Algo errado! Verifique novamente");
         }
     },
 
