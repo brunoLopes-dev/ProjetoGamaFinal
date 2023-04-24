@@ -20,7 +20,7 @@ Markdown Snippet
 
 ## API
 
-As tecnologias e pacotes utilizados nesse projeto foram HTML, CSS, React,JavaScript, TypeScript, Sequelize, Express, Nodemoon, Babel, Jest e js-to-ts-converter, sendo divididos em 4 endpoints:
+As tecnologias e pacotes utilizados nesse projeto foram HTML, CSS, React,JavaScript, TypeScript, Sequelize, Express, Nodemoon, Babel, Jest, sendo divididos em 4 endpoints:
 
 :white_medium_square:Autenticação<br>
 :white_medium_square:Usuarios<br>
@@ -51,7 +51,7 @@ Foi feito um CRUD confomer documentação.
 ## Desenvolvedores responsáveis pelo projeto - Grupo nº 2
   
 [Daniel Alejandro](https://github.com/FullDevDaniel), 
-[Bruno Lopes](https://github.com/FullDevDaniel),
-[Mateus Vinicius](https://github.com/FullDevDaniel),
-[Pedro Damata](https://github.com/FullDevDaniel),
-
+[Bruno Lopes](https://github.com/brunoLopes-dev),
+[Mateus Vinicius](github.com/MateusVRSilva),
+[Pedro Damata](https://github.com/PedroDmata),
+[Larrisa Santos](https://github.com/lariss-dev).
